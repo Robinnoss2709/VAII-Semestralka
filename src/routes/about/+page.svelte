@@ -1,6 +1,7 @@
-<script>
-    // Jednoduchý obsah pre testovanie
-</script>
 
-<h1>About</h1>
-<p>This is the about page.</p>
+    <div class="bg-[url('/images/banner.jpeg')] bg-cover bg-center h-20 w-full">
+        <h1 class="text-center py-6 ">
+            ABOUT US
+        </h1>
+    </div>
+    

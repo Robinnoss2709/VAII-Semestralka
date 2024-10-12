@@ -3,7 +3,9 @@
        {name: 'Home', link: '/'},
        {name: 'About', link: '/about'},
        {name: 'Shop', link: '/shop'},
+       {name: 'Blog', link: '/blog'},
     ];
+
  
     let isOpen = false;
  </script>
@@ -30,8 +32,8 @@
         <a href="/login" class="py-2 px-3 rounded-full border-2 border-transparent hover:border-yellow-400 hover:text-yellow-400">
             Login
         </a>
-        <a href="/register" class="bg-slate-500 hover:bg-yellow-400 text-white font-popins hover:text-slate-700 py-2 px-4 rounded duration-200">
-            Register
+        <a href="/register" class="bg-slate-500 hover:bg-yellow-400 font-bold text-white font-popins hover:text-slate-700 py-2 px-4 rounded duration-200">
+            Sign Up
         </a>
     </div>
 
@@ -41,20 +43,20 @@
 </header>
 
 {#if isOpen}
-    <div class="bg-gray-900 sm:hidden flex flex-col items-start gap-4 px-6 py-4">
+    <div class="bg-gray-900 sm:hidden flex flex-col items-end gap-4 px-6 py-4 transition-opacity duration-200">
         {#each tabs as tab}
-            <a href={tab.link} class="text-white hover:text-yellow-400 py-2">
+            <a href={tab.link} class="text-white hover:text-yellow-400 py-2" on:click={() => isOpen = !isOpen}>
                 {tab.name}
             </a>
         {/each}
-        <a href="/cart" class="text-white hover:text-yellow-400 py-2">
+        <a href="/cart" class="text-white hover:text-yellow-400 py-2" on:click={() => isOpen = !isOpen}>
             Cart
         </a>
-        <a href="/login" class="text-white hover:text-yellow-400 py-2">
+        <a href="/login" class="text-white hover:text-yellow-400 py-1 border-2 border-transparent rounded-3xl  hover:border-yellow-400" on:click={() => isOpen = !isOpen}>
             Login
         </a>
-        <a href="/register" class="bg-slate-500 hover:bg-yellow-400 text-white font-popins hover:text-slate-700 py-2 px-4 rounded duration-200">
-            Register
+        <a href="/register" class="font-bold bg-slate-500 hover:bg-yellow-400 text-white font-popins hover:text-slate-700 py-2 px-4 rounded duration-200" on:click={() => isOpen = !isOpen}>
+            Sign up
         </a>
     </div>
 {/if}
