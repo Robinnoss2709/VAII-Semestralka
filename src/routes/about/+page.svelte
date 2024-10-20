@@ -1,5 +1,4 @@
 <script>
-    // Tu môžeš pridať akékoľvek skripty alebo logiku, ak je potrebná
   </script>
   
   <div class="flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">

@@ -1,5 +1,4 @@
 <script>
-    // Tu môžeš pridať akékoľvek skripty alebo logiku, ak je potrebná
     let articles = [
       {
         title: "Novinka 1",
