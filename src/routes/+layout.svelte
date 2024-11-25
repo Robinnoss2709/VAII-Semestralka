@@ -1,19 +1,7 @@
 <script>
     import "../app.css";
-    import Footer from "../lib/components/Footer.svelte";
-    import Header from "../lib/components/Header.svelte";
-
-    import {onMount} from 'svelte'
-    import {auth} from '../lib/firebase/firebase.client'
-    import {authStore} from '../stores/authStore'
-    onMount(() => {
-      const unsubscribe = auth.onAuthStateChanged((user) => {
-          console.log(user)
-          authStore.update((curr) => {
-            return {...curr, isloading: false, currentUser: user}
-          })
-      })
-    })
+    import Footer from "$lib/components/Footer.svelte";
+    import Header from "$lib/components/Header.svelte";
 
   </script>
   

@@ -38,7 +38,7 @@
         </a>
     </div>
 
-    <button class="sm:hidden text-white" on:click={() => isOpen = !isOpen}>
+    <button class="sm:hidden text-white text-2xl" on:click={() => isOpen = !isOpen}>
         <i class="fa-solid fa-bars"></i>
     </button>
 </header>

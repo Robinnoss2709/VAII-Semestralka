@@ -1,78 +1,8 @@
 <script>
-    let subjects = [
-        {
-            name: "Informatika 1",
-            study: "Bakalárske",
-            fields: [
-                "Informatika",
-                "Informatika a riadenie",
-                "Informačné a sieťové technológie",
-                "Počítačové inžinierstvo"
-            ],
-            year: 1,
-            semester: "Zimný"
-        },
-        {
-            name: "Informatika 2",
-            study: "Bakalárske",
-            fields: [
-                "Informatika",
-                "Informatika a riadenie",
-                "Informačné a sieťové technológie",
-                "Počítačové inžinierstvo"
-            ],
-            year: 1,
-            semester: "Letný"
-        },
-        {
-            name: "Informatika 3",
-            study: "Bakalárske",
-            fields: [
-                "Informatika",
-                "Informatika a riadenie",
-                "Informačné a sieťové technológie",
-                "Počítačové inžinierstvo"
-            ],
-            year: 2,
-            semester: "Zimný"
-        },
-        {
-            name: "Diskrétna Optimalizácia",
-            study: "Bakalárske",
-            fields: [
-                "Informatika",
-                "Informatika a riadenie",
-            ],
-            year: 2,
-            semester: "Letný"
-        },
-        {
-            name: "Vývoj Aplikácií pre Internet a Intranet",
-            study: "Bakalárske",
-            fields: [
-                "Informatika",
-                "Počítačové inžinierstvo"
-            ],
-            year: 3,
-            semester: "Zimný"
-        },
-        {
-            name: "Anglický Jazyk bc. 2",
-            study: "Bakalárske",
-            fields: [
-                "Informatika",
-                "Informatika a riadenie",
-                "Informačné a sieťové technológie",
-                "Manažment",
-                "Počítačové inžinierstvo"
-            ],
-            year: 3,
-            semester: "Letný"
-        },
-    ];
+    import SubjectCard from "../../lib/components/SubjectCard.svelte";
+    import subjects from "../../lib/data/subjects.json"
     
     let searchQuery = "";
-    
     let selectedField = "";
     let selectedYear = "";
     let selectedStudy = "";
@@ -103,7 +33,7 @@
     ];
     
     const years = [1, 2, 3];
-    const studies = ["Bakalárske", "Inžinierske"];
+    const studies = ["Bc.", "Ing."];
     const semesters = ["Zimný", "Letný"];
 </script>
 
@@ -136,12 +66,12 @@
         <div class="flex items-center">
             <select bind:value={selectedField} class="basic-input">
                 <option value="">Odbor</option>
-                {#if selectedStudy === "Bakalárske"}
+                {#if selectedStudy === "Bc."}
                     {#each bachelorFields as field}
                         <option value={field}>{field}</option>
                     {/each}
                 {/if}
-                {#if selectedStudy === "Inžinierske"}
+                {#if selectedStudy === "Ing."}
                     {#each engineerFields as field}
                         <option value={field}>{field}</option>
                     {/each}
@@ -167,7 +97,7 @@
         </div>
         <button 
             type="button" 
-            class="flex items-center underline text-green-400 font-light cursor-pointer"
+            class="flex items-center underline text-green-400 font-light cursor-pointer justify-center"
             on:click={clearFilters}>
         Zruš filtre
         </button>
@@ -182,15 +112,7 @@
                 (!selectedSemester || subject.semester === selectedSemester) &&
                 (subject.name.toLowerCase().includes(searchQuery.toLowerCase()))
             }
-                <div class="bg-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300 cursor-pointer">
-                    <h2 class="text-2xl font-bold text-gray-900">{subject.name}</h2>
-                    <p class="mt-4 text-gray-900">
-                        Testuj svoje znalosti z {subject.name}.
-                    </p>
-                    <a href="/test/{subject.name.toLowerCase()}" class="font-bold mt-4 inline-block text-green-400">
-                        Otvoriť tester
-                    </a>
-                </div>
+                <SubjectCard subject = {subject}/>
             {/if}
         {/each}
     </div>

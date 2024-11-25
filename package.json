@@ -21,6 +21,7 @@
   "type": "module",
   "dependencies": {
     "@auth/sveltekit": "^1.7.0",
+    "@sveltejs/adapter-node": "^5.2.9",
     "firebase": "^10.14.1"
   }
 }
